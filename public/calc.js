@@ -78,7 +78,17 @@ $('#equals').click(function(e){
 
     var num1 = Number.parseInt(stringNum[0]);
     var num2 = Number.parseInt(stringNum[2]);
-    var total = num1 + num2;
+    switch (stringNum[1]) {
+        case '+': total = num1 + num2;
+            break;
+        case '-': total = num1 - num2;
+            break;
+        case '*': total = num1 * num2;
+            break;
+        case '/': total = num1 / num2;
+            break;
+    }
+    // var total = num1 + num2;
     console.log(total);
     $('#display').text(total);
 
