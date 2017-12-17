@@ -41,6 +41,12 @@ $('#9').click(function(e){
     $('#display').text($display += '9');
 });
 
+//decimal
+$('#decimal').click(function(e){
+    var $currentDisplay = $('#display').text();
+    $('#display').text($currentDisplay += '.');
+});
+
 
 // add/sub/mult/div buttons
 $('#add').click(function(e){
@@ -63,12 +69,12 @@ $('#divide').click(function(e){
 
 //clear
 $('#clear').click(function(e){
-    console.log('clicked');
+    console.log('cleared');
     $('#display').text('');
 });
 
 
-//math =
+//math = button
 $('#equals').click(function(e){
     var $currentDisplay = $('#display').text();
     var stringNum = $('#display').text().split(" ");
@@ -76,8 +82,8 @@ $('#equals').click(function(e){
     console.log(stringNum[1]);
     console.log(stringNum[2]);
 
-    var num1 = Number.parseInt(stringNum[0]);
-    var num2 = Number.parseInt(stringNum[2]);
+    var num1 = Number.parseFloat(stringNum[0]);
+    var num2 = Number.parseFloat(stringNum[2]);
     switch (stringNum[1]) {
         case '+': total = num1 + num2;
             break;
