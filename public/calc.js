@@ -75,10 +75,12 @@ $('#equals').click(function(e){
     console.log(stringNum[0]);
     console.log(stringNum[1]);
     console.log(stringNum[2]);
-    var numAge = Number.parseInt(stringNum);
 
-    // if($currentDisplay'+'){
-    //
-    // }
-    $('#display').text('');
+    var num1 = Number.parseInt(stringNum[0]);
+    var num2 = Number.parseInt(stringNum[2]);
+    var total = num1 + num2;
+    console.log(total);
+    $('#display').text(total);
+
+
 });
