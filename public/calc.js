@@ -74,8 +74,46 @@ $('#clear').click(function(e){
 });
 
 
-//math = button
+// '=' button
 $('#equals').click(function(e){
+    $doMath();
+
+});
+
+$(document).keypress(function(kp){
+    // console.log(String.fromCharCode(kp.which));
+    var $display = $('#display').text();
+    var key = String.fromCharCode(kp.which);
+
+    //check if NaN
+    if(isNaN(key) && key !== '+' && key !== '-'
+                  && key !== '*' && key !== '/'
+                  && key !== '=' && key !== '.'
+                  && key !== 'C' && key !== 'c'){
+        alert('please enter a number');
+
+    }
+    else {
+        //if operator sign add spaces, else keep together
+        if(key === '+' || key === '-' || key === '*' || key === '/' || key === '='){
+            $('#display').text($display += ' ' + String.fromCharCode(kp.which) + ' ');
+        }
+        else {
+            $('#display').text($display += String.fromCharCode(kp.which));
+
+        }
+        if(key === '='){
+            $doMath();
+        }
+        if(key === 'c' || key === 'C'){
+            $('#display').text('');
+        }
+
+    }
+
+});
+
+var $doMath  = function(){
     var $currentDisplay = $('#display').text();
     var stringNum = $('#display').text().split(" ");
     console.log(stringNum[0]);
@@ -97,6 +135,4 @@ $('#equals').click(function(e){
     // var total = num1 + num2;
     console.log(total);
     $('#display').text(total);
-
-
-});
+}
