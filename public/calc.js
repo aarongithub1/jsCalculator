@@ -80,6 +80,23 @@ $('#equals').click(function(e){
 
 });
 
+//keyUp for backspace key
+$(document).keyup(function(ku){
+    if(ku.keyCode === 8) {
+        var $display = $('#display').text();
+        var strArr = $display.split('');
+
+        strArr.pop();
+        console.log(strArr);
+
+        var newString = strArr.toString().split(',').join('');
+        // console.log(newString);
+        $('#display').text(newString);
+
+    }
+});
+
+//error checking NaN and operator signs
 $(document).keypress(function(kp){
     // console.log(String.fromCharCode(kp.which));
     var $display = $('#display').text();
